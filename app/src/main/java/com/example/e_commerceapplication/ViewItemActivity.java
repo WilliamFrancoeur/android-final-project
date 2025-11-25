@@ -131,7 +131,6 @@ public class ViewItemActivity extends AppCompatActivity {
                     JSONObject object = new JSONObject(response);
                     CustomerId = object.getString("id");
                     Log.d("Stripe", "Customer created: " + CustomerId);
-                    Toast.makeText(ViewItemActivity.this, "Customer ID: " + CustomerId, Toast.LENGTH_SHORT).show();
 
                     // Now that CustomerId is available, fetch the Ephemeral Key
                     if (CustomerId != null && !CustomerId.isEmpty()) {
@@ -213,7 +212,7 @@ public class ViewItemActivity extends AppCompatActivity {
                     JSONObject object = new JSONObject(response);
                     ClientSecret = object.getString("client_secret");
                     Log.d("Stripe", "Client Secret created: " + ClientSecret);
-                    Toast.makeText(ViewItemActivity.this, "Client Secret: " + ClientSecret, Toast.LENGTH_SHORT).show();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(ViewItemActivity.this, "Error fetching client secret: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -259,7 +258,12 @@ public class ViewItemActivity extends AppCompatActivity {
     private void onPaymentResult(PaymentSheetResult paymentSheetResult) {
         if (paymentSheetResult instanceof PaymentSheetResult.Completed) {
             Toast.makeText(this, "Payment Success", Toast.LENGTH_SHORT).show();
-            //you also need to send the firebase as well
+            Intent intent = getIntent();
+            String id = intent.getStringExtra("id");
+            FirebaseDatabase.getInstance().getReference("products")
+                    .child(id)
+                    .removeValue();
+            startActivity(new Intent(this, MainActivity.class));
         } else {
             Toast.makeText(this, "Payment Failed", Toast.LENGTH_SHORT).show();
         }
