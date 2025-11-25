@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:layout_width="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue"
+        app:title=" "
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marketly"
+            android:paddingLeft="30dp"
+            android:fontFamily="@font/fredoka_bold"
+            android:textColor="@color/white"
+            android:textSize="30dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageViewProductEdit"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@color/grey"
+            />
+
+
+        <Button
+            android:id="@+id/btnchooseimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:text="Choose new Image"/>
+
+        <EditText
+            android:id="@+id/etNameEp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Product Name"/>
+
+
+        <EditText
+            android:id="@+id/etDescEp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Product Desc"/>
+        <EditText
+            android:id="@+id/etPriceEp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:text="Product Price"/>
+
+        <Button
+            android:id="@+id/savechange"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"
+            android:text="Save Changes"/>
+    </LinearLayout>
+
+</LinearLayout>
